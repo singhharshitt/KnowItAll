@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp/Login - KnowItAll</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-[#BDC2BF]">
+    <div class="bg-white w-[1000px] h-[600px] flex rounded-lg shadow-xl overflow-hidden relative">
+        <div class="w-1/2 bg-green-100 flex flex-col items-center justify-center p-6">
+            <img src="KnowItAll.png" alt="KnowItAll?" class="w-80 h-80 object-cover mb-4">
+        </div>
+
+        <div class="w-1/2 flex flex-col justify-center p-10 absolute top-0 right-0 h-full transition-transform duration-500 ease-in-out" id="formContainer">
+            <h1 class="text-3xl font-bold text-gray-800 text-center font-[Dancing Script]">KnowItAll?</h1>
+            <p class="text-center text-gray-600 mt-2">"Because Google Needed a Break! 😏"</p>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="mt-6">
+                <label class="text-gray-600 text-sm">User name or Email</label>
+                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg mt-1 focus:ring-2 focus:ring-green-400" placeholder="Your email or username">
+                
+                <label class="text-gray-600 text-sm mt-4 block">Password</label>
+                <input type="password" class="w-full p-3 border border-gray-300 rounded-lg mt-1 focus:ring-2 focus:ring-green-400" placeholder="********">
+
+                <div class="flex justify-between mt-2 text-sm">
+                    <a href="#" class="text-green-600 hover:underline">Forgot password?</a>
+                </div>
+
+                <button class="w-full bg-gray-700 text-white p-3 rounded-lg mt-4 hover:bg-gray-800 transition">Sign in</button>
+
+                <p class="text-center text-gray-600 text-sm mt-4">New to KnowItAll? <a href="#" class="text-green-600 hover:underline" id="showSignup">Create Account</a></p>
+            </form>
+
+            <!-- Signup Form (Initially Hidden) -->
+            <form id="signupForm" class="mt-2 hidden">
+                <label class="text-gray-600 text-sm">Full Name</label>
+                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg mt-1 focus:ring-2 focus:ring-green-400" placeholder="Your name">
+                
+                <label class="text-gray-600 text-sm mt-2 block">Username</label>
+                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg mt-1 focus:ring-2 focus:ring-green-400" placeholder="Your username">
+                
+                <label class="text-gray-600 text-sm mt-2 block">Password</label>
+                <input type="password" class="w-full p-3 border border-gray-300 rounded-lg mt-1 focus:ring-2 focus:ring-green-400" placeholder="********">
+                
+                <label class="text-gray-600 text-sm mt-2 block">Confirm Password</label>
+                <input type="password" class="w-full p-3 border border-gray-300 rounded-lg mt-1 focus:ring-2 focus:ring-green-400" placeholder="********">
+                
+                <label class="text-gray-600 text-sm mt-2 block">Age</label>
+                <input type="number" class="w-full p-3 border border-gray-300 rounded-lg mt-1 focus:ring-2 focus:ring-green-400" placeholder="Your age">
+
+                <button class="w-full bg-gray-700 text-white p-3 rounded-lg mt-4 hover:bg-gray-800 transition">Sign Up</button>
+
+                <p class="text-center text-gray-600 text-sm mt-4">Already have an account? <a href="#" class="text-green-600 hover:underline" id="showLogin">Sign In</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const showSignup = document.getElementById('showSignup');
+        const showLogin = document.getElementById('showLogin');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        
+        showSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginForm.classList.add('hidden');
+            signupForm.classList.remove('hidden');
+        });
+
+        showLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            signupForm.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
